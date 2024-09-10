@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <app-custom-input label="UserName"></app-custom-input>
+    <input type="text">
+
+
+    <app-custom-form ></app-custom-form>
+
+    <script type="module" src="./src/input-practice.js"></script>
+    <script type="module" src="./src/basic-form-practice.js"></script>
+
+    <script>
+
+        const test =  () => {
+            console.log("test");
+        }
+        document.addEventListener('input', eve => {
+            console.log(eve.target);
+        });
+
+        document.addEventListener('input-element',eve => {
+            console .log("event form input", eve.target, eve.detail)
+        });
+
+        document.addEventListener('button-clicked', eve => {
+            console.log("event captured")
+        })
+
+    </script>
+</body>
+</html>

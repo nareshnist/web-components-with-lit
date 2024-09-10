@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 30px;
+        }
+
+
+        h1 {
+            color: red;
+        }
+
+        /* app-button::part(custome-btn){
+            background-color: red;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <button type="button" class="btn btn-danger">Danger</button>
+
+    <app-button  onclick="add()" >Add</app-button>
+    <app-button  onclick="remove()">Remove</app-button>
+    <app-button text="move" onclick="move()"></app-button>
+
+
+    <app-card>
+        <h1 slot="card-header">Header</h1>
+        <h3 slot="card-header">Sub Header</h3>
+        <p slot="card-body">This is cart body</p>
+        <button type="button">action</button>
+        <button type="button">Another action</button>
+    </app-card>
+
+    <app-card>
+        <div slot="card-header">
+            <h1 >Header</h1>
+        </div>
+        <button type="button">action</button>
+        <button type="button">Another action</button>
+    </app-card>
+
+    <!-- <iframe></iframe>
+    <app-stopwatch></app-stopwatch> -->
+
+<!-- 
+    <input type="range" name="" id=""> show user agent shadow dom
+    <video src=""></video> --> 
+    <script>
+
+        const add = () => {
+            const counter = document.createElement('app-counter');
+            counter.setAttribute('until', '5');
+            document.body.append(counter);
+        }
+
+        const remove = () => {
+            document.querySelector('app-counter').remove();
+        }
+
+        const move = () => {
+            const iframe = document.querySelector('iframe');
+            const doc = document.implementation.createHTMLDocument("new document"); // new html doc (structure)
+
+            const destinationIframe = iframe.contentDocument;
+            destinationIframe.replaceChild(doc.documentElement, destinationIframe.documentElement);
+
+            const counter = document.querySelector('app-counter');
+            destinationIframe.body.appendChild(destinationIframe.adoptNode(counter));
+        }
+
+
+        // one way
+        // const card = document.querySelector('app-card');
+        // card.style.display = 'none';
+
+        // customElements.whenDefined('app-card').then(() => {
+        //     card.style.display = 'block';
+        // })
+
+    </script>
+    <script src="./src/button.js" type="module"></script>
+    <script src="./src/counter.js" type="module"></script>
+    <script src="./src/stopWatch.js" type="module"></script>
+    <script src="./src/card.js" type="module"></script>
+</body>
+
+</html>

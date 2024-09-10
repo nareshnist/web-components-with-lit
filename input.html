@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+</head>
+
+
+<body>
+<app-input lable="UserName"></app-input>
+<input>
+<!-- <app-form onclick="tets()"></app-form> example of the button click  --> 
+
+    <script>
+        const test  = () => {
+            console.log("form clicked")
+        }
+        document.addEventListener('input' ,(event) => {
+            console.log(event.target);
+        });
+
+        document.addEventListener('app-input' ,(event) => {
+            console.dir(event.detail);
+        });
+
+        document.addEventListener('app-button-clicked' ,() => {
+            console.log("clieck button")
+        })
+    </script>
+
+<script src="./src/input.js" type="module"></script>
+<script src="./src/button.js" type="module"></script>
+<script src="./src/basic-form.js" type="module"></script>
+
+</body>
+
+</html>
