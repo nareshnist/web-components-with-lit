@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import Litintegrate from './components/LitIntegrate.vue'
+import Litintegrate from './components/LitIntegrate.vue';
+import 'nj-card'
 </script>
 
 <template>
 <Litintegrate></Litintegrate>
+<lit-card></lit-card>
+
+
 </template>
 
 <style scoped>
