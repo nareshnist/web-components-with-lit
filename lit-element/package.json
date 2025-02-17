@@ -1,11 +1,25 @@
 {
-  "name": "lit-element",
-  "private": false,
-  "version": "0.1.0",
+  "name": "nj-card",
+  "version": "0.1.1",
+  "description": "A custom Lit component",
   "type": "module",
+  "main": "dist/nj-card.js",
+  "module": "dist/nj-card.js",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/nj-card.js",
+      "require": "./dist/nj-card.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prepare": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
